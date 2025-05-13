@@ -68,6 +68,10 @@ export default {
 					negative: '#FF3D57',
 					neutral: '#0A2647',
 					light: '#F5F8FA',
+					lightblue: '#E3F2FD',
+					darkblue: '#01579B',
+					yellow: '#FFD54F',
+					orange: '#FF9800',
 				}
 			},
 			borderRadius: {
@@ -95,12 +99,19 @@ export default {
 				'pulse-light': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.5' }
+				},
+				'ping': {
+					'75%, 100%': { 
+						transform: 'scale(2)',
+						opacity: '0' 
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pulse-light': 'pulse-light 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+				'pulse-light': 'pulse-light 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'ping': 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite'
 			}
 		}
 	},

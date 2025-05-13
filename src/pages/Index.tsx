@@ -6,7 +6,10 @@ import StockChart from '@/components/StockChart';
 import WatchlistCard from '@/components/WatchlistCard';
 import NewsCard from '@/components/NewsCard';
 import TopMoversCard from '@/components/TopMoversCard';
+import PredictionSection from '@/components/PredictionSection';
 import LiveDataIndicator from '@/components/LiveDataIndicator';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { Info } from 'lucide-react';
 import { stockDetails, watchlistStocks, topGainers, topLosers, marketNews } from '@/data/mockData';
 
 const Index = () => {
@@ -55,6 +58,14 @@ const Index = () => {
           </div>
         </div>
         
+        <Alert className="mb-6 bg-blue-50 border-blue-200">
+          <Info className="h-4 w-4 text-blue-500" />
+          <AlertTitle className="text-blue-700">Stock Market Monitoring & Price Prediction</AlertTitle>
+          <AlertDescription className="text-blue-600">
+            Welcome to our platform. This is a project by Veeresh, Prajwal, Ganesh, and Manjunatha. Guided by Prof. Prasad H.M.
+          </AlertDescription>
+        </Alert>
+        
         <MarketSummary />
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
@@ -78,7 +89,10 @@ const Index = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+          <div className="lg:col-span-2">
+            <PredictionSection selectedStock={selectedStock} />
+          </div>
           <div>
             <TopMoversCard 
               gainers={topGainers} 
@@ -86,7 +100,10 @@ const Index = () => {
               onStockSelect={handleStockSelect} 
             />
           </div>
-          <div className="lg:col-span-2">
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
+          <div>
             <NewsCard news={marketNews} />
           </div>
         </div>

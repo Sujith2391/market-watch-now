@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { TrendingUp, TrendingDown } from 'lucide-react';
+import { TrendingUp, TrendingDown, AlertTriangle } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface StockMover {
@@ -25,9 +25,15 @@ const TopMoversCard: React.FC<TopMoversCardProps> = ({ gainers, losers, onStockS
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="gainers">
-          <TabsList className="mb-2 w-full">
-            <TabsTrigger value="gainers" className="flex-1">Gainers</TabsTrigger>
-            <TabsTrigger value="losers" className="flex-1">Losers</TabsTrigger>
+          <TabsList className="mb-2 w-full grid grid-cols-2">
+            <TabsTrigger value="gainers" className="flex items-center justify-center">
+              <TrendingUp size={14} className="mr-1 text-market-positive" />
+              Gainers
+            </TabsTrigger>
+            <TabsTrigger value="losers" className="flex items-center justify-center">
+              <TrendingDown size={14} className="mr-1 text-market-negative" />
+              Losers
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="gainers">
             <div className="space-y-1">
@@ -76,6 +82,13 @@ const TopMoversCard: React.FC<TopMoversCardProps> = ({ gainers, losers, onStockS
             </div>
           </TabsContent>
         </Tabs>
+        
+        <div className="mt-4 p-2 bg-market-lightblue rounded-md flex items-start gap-2">
+          <AlertTriangle size={16} className="text-market-darkblue shrink-0 mt-0.5" />
+          <p className="text-xs text-market-darkblue">
+            High volatility detected in the market. Consider portfolio diversification.
+          </p>
+        </div>
       </CardContent>
     </Card>
   );
